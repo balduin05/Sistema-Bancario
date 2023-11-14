@@ -19,6 +19,7 @@ public class Main {
 		do {
 			System.out.println();
 			System.out.println(" - MENU - ");
+			System.out.println();
 			System.out.println("1) Inserire conto corrente");
 			System.out.println("2) Visualizza conto corrente");
 			System.out.println("3) Versamento");

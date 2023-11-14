@@ -202,7 +202,7 @@ public class Conto_corrente {
 		System.out.println("Saldo: " + saldo + "€");
 		System.out.println("Cognome: " + cognome);
 		System.out.println("Nome: " + nome);
-		System.out.println();
+		System.out.println("------------------------------------------------------");
 		
 	}
 }
