@@ -214,6 +214,56 @@ public class Gestione_banca {
 	// METODO TRASFERIMENTO (DA FARE):
 	
 	
+	public void trasferimento(int n_conto_corrente_1, int n_conto_corrente_2, double somma) {
+		if(aL.size() > 0) {
+			// RICERCA PRIMO CONTO CORRENTE:
+			
+			boolean n_conto_corrente_1_trovato = false;
+			double prelievo = 0;
+			double trasferimento = 0;
+			
+			for(Conto_corrente c : aL) {
+				if(c.getN_conto_corrente() == n_conto_corrente_1) {
+					n_conto_corrente_1_trovato = true;
+					
+					prelievo = c.getSaldo() - somma;
+					c.setSaldo(prelievo);
+					
+					break;
+					
+				}
+			}
+			
+			// RICERCA SECONDO CONTO CORRENTE:
+			
+			boolean n_conto_corrente_2_trovato = false;
+			
+			for(Conto_corrente c : aL) {
+				if(c.getN_conto_corrente() == n_conto_corrente_2) {
+					n_conto_corrente_2_trovato = true;
+					
+					trasferimento = c.getSaldo() + prelievo;
+					c.setSaldo(trasferimento);
+					
+					break;
+					
+				}
+			}
+			
+			if(n_conto_corrente_1_trovato && n_conto_corrente_2_trovato) {
+				System.out.println("Trasferimento avvenuto con successo!");				
+				
+			}else {
+				System.out.println("Errore: qualcosa è andato storto...");
+				
+			}
+		}else {
+			System.out.println("Errore: il programma è vuoto!");
+			
+		}
+	}
+	
+	
 	
 	
 	

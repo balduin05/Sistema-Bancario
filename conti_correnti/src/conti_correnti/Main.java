@@ -27,7 +27,8 @@ public class Main {
 			System.out.println("6) Visualizza cognome");
 			System.out.println("7) Visualizza nome");
 			System.out.println("8) Visualizza numeri conti correnti");
-			System.out.println("9) Esci dal programma");
+			System.out.println("9) Trasferimento");
+			System.out.println("10) Esci dal programma");
 			System.out.println();
 			System.out.print("Opzione scelta: ");
 			scelta = keyboard.nextInt();
@@ -172,9 +173,45 @@ public class Main {
 					
 				}
 				
+			case 9:
+				if(cont_n_conti_correnti > 0) {
+					int n_conto_corrente_1;
+					int n_conto_corrente_2;
+					double somma;
+					
+					do {
+						System.out.print("Numero conto corrente di cui si vogliono prendere i soldi: ");
+						n_conto_corrente_1 = keyboard.nextInt();
+						keyboard.nextLine();
+						
+					}while(n_conto_corrente_1 < 0);
+					
+					do {
+						System.out.print("Numero conto corrente di cui si vogliono trasferire i soldi: ");
+						n_conto_corrente_2 = keyboard.nextInt();
+						keyboard.nextLine();
+						
+					}while(n_conto_corrente_2 < 0);
+					
+					do {
+						System.out.print("Inserire la somma di denaro da trasferire dal conto corrente numero " + n_conto_corrente_1 + " al conto corrente numero " + n_conto_corrente_2 + ": ");
+						somma = keyboard.nextDouble();
+						keyboard.nextLine();
+						
+					}while(somma < 0);
+					
+					g.trasferimento(n_conto_corrente_1, n_conto_corrente_2, somma);
+					
+					break;
+					
+				}else {
+					System.out.println("Errore: il programma è vuoto!");
+					
+				}
+				
 			}
 			
-		}while(scelta != 9);
+		}while(scelta != 10);
 
 	}
 
